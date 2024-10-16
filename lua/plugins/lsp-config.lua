@@ -2,7 +2,9 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				ensure_installed = { "mypy", "stylua", "rust-analyser" },
+			})
 		end,
 	},
 	{
@@ -19,7 +21,12 @@ return {
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({})
-			lspconfig.ruff_lsp.setup({})
+			lspconfig.ruff_lsp.setup({
+				filetypes = { "python" },
+			})
+			lspconfig.pyright.setup({
+				filetypes = { "python" },
+			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "v", "n" }, "<leader>ca", vim.lsp.buf.code_action, {})

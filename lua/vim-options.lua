@@ -11,18 +11,38 @@ vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 -- MAPPINGS
 
 --- clear search
-vim.keymap.set("n", "<M-l>", ":let @/ = ''<CR>", {noremap = true, silent = true})
-vim.keymap.set("n", '<leader>"', ":split<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-w>", "<C-w>w", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>%", ":vsplit<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
--- Bufferline
-vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-h>", ":split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", "<C-w>w", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
-vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
-vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
+local sign = function(opts)
+	vim.fn.sign_define(opts.name, {
+		texthl = opts.name,
+		text = opts.text,
+		numhl = "",
+	})
+end
+
+sign({ name = "DiagnosticSignError", text = "" })
+sign({ name = "DiagnosticSignWarn", text = "" })
+sign({ name = "DiagnosticSignHint", text = "" })
+sign({ name = "DiagnosticSignInfo", text = "" })
+
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = true,
+	update_in_insert = true,
+	underline = true,
+	severity_sort = false,
+	float = {
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
+
+vim.cmd([[
+    set signcolumn=yes
+    autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])

@@ -17,8 +17,4 @@ vim.g.loaded_netrwPlugin = 0
 require("vim-options")
 require("lazy").setup("plugins")
 
--- vim.cmd("colorscheme tokyonight-night")
--- vim.cmd("colorscheme tokyodark")
--- vim.cmd("colorscheme 'catppuccin-latte'")
-
 -- EOF
