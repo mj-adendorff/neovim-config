@@ -9,6 +9,12 @@ vim.cmd("set softtabstop=-1")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set colorcolumn=120")
 
+-- if using neovide
+if vim.g.neovide then
+	vim.o.guifont = "0xProto Nerd Font Mono:h10.0"
+	vim.g.neovide_floating_shadow = true
+end
+
 -- uncomment these line to show invisibles
 -- vim.cmd("set list")
 -- vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
@@ -17,11 +23,12 @@ vim.o.number = true
 -- vim.o.relativenumber = true
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
+vim.opt.guicursor = "i:ver20-blinkon1,a:blinkon1"
 -- MAPPINGS
 
 --- clear search
-vim.keymap.set("n", "<S-h>", ":split<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>h", "<C-w>w", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-w>", "<C-w>w", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", ":split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true })
 
 local sign = function(opts)
