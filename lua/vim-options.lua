@@ -5,10 +5,14 @@ vim.cmd("set preserveindent")
 vim.cmd("set softtabstop=0")
 vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
---vim.cmd("set set indentexpr=")
 vim.cmd("set softtabstop=-1")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set colorcolumn=120")
+
+-- uncomment these line to show invisibles
+-- vim.cmd("set list")
+-- vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
+
 vim.o.number = true
 -- vim.o.relativenumber = true
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct

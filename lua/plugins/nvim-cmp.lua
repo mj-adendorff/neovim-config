@@ -24,11 +24,36 @@ return {
 				-- documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
+				["<Tab>"] = cmp.mapping({
+					c = function()
+						if cmp.visible() then
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+						else
+							cmp.complete()
+						end
+					end,
+					i = function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+						elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+							vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
+						else
+							fallback()
+						end
+					end,
+					s = function(fallback)
+						if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+							vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
+						else
+							fallback()
+						end
+					end,
+				}),
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+				["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
