@@ -1,9 +1,14 @@
 -- VIM SETUP
-vim.cmd("set expandtab")
+vim.cmd("set copyindent")
+vim.cmd("set noexpandtab")
+vim.cmd("set preserveindent")
+vim.cmd("set softtabstop=0")
 vim.cmd("set tabstop=4")
+vim.cmd("set shiftwidth=4")
+--vim.cmd("set set indentexpr=")
+vim.cmd("set softtabstop=-1")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set colorcolumn=120")
-vim.cmd("set shiftwidth=4")
 vim.o.number = true
 -- vim.o.relativenumber = true
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct

@@ -3,7 +3,7 @@ return {
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup({
-				ensure_installed = { "mypy", "stylua", "rust-analyser" },
+				ensure_installed = { "stylua", "rust-analyser" },
 			})
 		end,
 	},
@@ -11,7 +11,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "ruff_lsp", "lua_ls", "tsserver" },
+				ensure_installed = { "lua_ls", "ts_ls" },
 			})
 		end,
 	},
@@ -20,10 +20,7 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
-			lspconfig.tsserver.setup({})
-			lspconfig.ruff_lsp.setup({
-				filetypes = { "python" },
-			})
+			lspconfig.ts_ls.setup({})
 			lspconfig.pyright.setup({
 				filetypes = { "python" },
 			})
