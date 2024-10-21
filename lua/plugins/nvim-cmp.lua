@@ -24,7 +24,7 @@ return {
 				-- documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<Tab>"] = cmp.mapping({
+				["<S-Tab>"] = cmp.mapping({
 					c = function()
 						if cmp.visible() then
 							cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })

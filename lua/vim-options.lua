@@ -1,23 +1,28 @@
 -- VIM SETUP
-vim.cmd("set copyindent")
-vim.cmd("set noexpandtab")
-vim.cmd("set preserveindent")
-vim.cmd("set softtabstop=0")
+--vim.cmd("set copyindent")
+--vim.cmd("set noexpandtab")
+--vim.cmd("set preserveindent")
+--vim.cmd("set softtabstop=0")
 vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=-1")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set colorcolumn=120")
+vim.cmd("set noexpandtab")
+-- hard tabs for python files
+vim.cmd("autocmd FileType python setlocal noexpandtab")
 
 -- if using neovide
 if vim.g.neovide then
 	vim.o.guifont = "0xProto Nerd Font Mono:h10.0"
 	vim.g.neovide_floating_shadow = true
+	vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
+	vim.keymap.set({ "n", "x" }, "<C-S-V>", '"+p', { desc = "Paste system clipboard" })
 end
 
 -- uncomment these line to show invisibles
--- vim.cmd("set list")
--- vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
+vim.cmd("set list")
+vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 
 vim.o.number = true
 -- vim.o.relativenumber = true

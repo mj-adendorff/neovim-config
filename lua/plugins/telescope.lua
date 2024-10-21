@@ -8,13 +8,20 @@ return {
 			vim.keymap.set("n", "<leader><leader>", builtin.find_files, {})
 			vim.keymap.set("n", "<leader>/", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>b", builtin.buffers, {})
-            -- vim.keymap.set("n", "<leader>h", builtin.help_tags, {})
+			-- vim.keymap.set("n", "<leader>h", builtin.help_tags, {})
 		end,
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
 			require("telescope").setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<C-S-V>"] = { "<C-r>+", type = "command" },
+						},
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({
