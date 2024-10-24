@@ -11,13 +11,19 @@ vim.cmd("set colorcolumn=120")
 vim.cmd("set noexpandtab")
 -- hard tabs for python files
 vim.cmd("autocmd FileType python setlocal noexpandtab")
+vim.cmd("set relativenumber")
 
 -- if using neovide
 if vim.g.neovide then
-	vim.o.guifont = "0xProto Nerd Font Mono:h10.0"
+	vim.o.guifont = "0xProto Nerd Font Mono:h14.0"
 	vim.g.neovide_floating_shadow = true
 	vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
 	vim.keymap.set({ "n", "x" }, "<C-S-V>", '"+p', { desc = "Paste system clipboard" })
+	vim.g.neovide_input_use_logo = 1
+	vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 end
 
 -- uncomment these line to show invisibles
