@@ -27,8 +27,8 @@ if vim.g.neovide then
 end
 
 -- uncomment these line to show invisibles
---vim.cmd("set list")
---vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
+-- vim.cmd("set list")
+-- vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 
 vim.o.number = true
 -- vim.o.relativenumber = true
