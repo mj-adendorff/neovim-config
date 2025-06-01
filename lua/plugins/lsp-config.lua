@@ -1,24 +1,17 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup({
-				ensure_installed = { "stylua", "rust-analyser" },
-			})
-		end,
+		opts = {
+			ensure_installed = { "stylua", "rust-analyser" },
+		},
 	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls" },
-			})
-		end,
-	},
+	{ "nvim-java/nvim-java" },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
+			require("java").setup()
+			lspconfig.jdtls.setup({})
 			lspconfig.lua_ls.setup({})
 			lspconfig.ts_ls.setup({})
 			lspconfig.pyright.setup({
