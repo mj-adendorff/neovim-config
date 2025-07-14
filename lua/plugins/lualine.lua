@@ -8,7 +8,6 @@ return {
 		end
 		require("lualine").setup({
 			options = {
-
 				globalstatus = true,
 			},
 			sections = {

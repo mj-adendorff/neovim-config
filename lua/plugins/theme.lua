@@ -13,16 +13,10 @@ return {
 		"tiagovla/tokyodark.nvim",
 		lazy = false,
 		priority = 1000,
-		enabled = false,
-		config = function()
-			require("tokyodark").setup()
-			-- vim.cmd("colorscheme tokyodark")
-		end,
 	},
 	{
 		"mj-adendorff/onedark.nvim",
 		lazy = false,
-		enabled = false,
 		name = "onedark",
 		priority = 1000,
 	},
@@ -31,12 +25,48 @@ return {
 		name = "catpuccin",
 		lazy = false,
 		priority = 1000,
-		enable = false,
-		config = function()
-			require("catppuccin").setup({
-				flavor = "mocha",
-			})
-			-- vim.cmd("colorscheme catppuccin-mocha")
-		end,
 	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = 'kanagawa',
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		'AlexvZyl/nordic.nvim',
+		name = "nordic",
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		"ellisonleao/gruvbox.nvim",
+		name = "gruvbox",
+		priority = 1000,
+		lazy = true,
+		config = function()
+			require("gruvbox").setup({
+				terminal_colors = true,
+				undercurl = true,
+				underline = true,
+				bold = true,
+				italic = {
+					strings = true,
+					emphasis = true,
+					comments = true,
+					operators = true,
+					folds = true,
+				},
+				strikethrough = true,
+				invert_selection = false,
+				invert_signs = false,
+				invert_tabline = false,
+				inverse = true,
+				contrast = "",
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
+				transparent_mode = false,
+			})
+		end
+	}
 }
