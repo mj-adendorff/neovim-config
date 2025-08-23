@@ -1,1 +1,1 @@
-return { "akinsho/git-conflict.nvim", version = "*", config = true }
+return { "akinsho/git-conflict.nvim", enabled = false, version = "*", config = true }

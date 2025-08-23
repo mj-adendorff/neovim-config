@@ -1,14 +1,28 @@
 return {
 	'nvimdev/lspsaga.nvim',
+	enabled = true,
+	lazy = false,
+	opts = {
+		symbol_in_winbar = {
+			enabled = true,
+		}
+	},
 	config = function()
-		require('lspsaga').setup({})
+		require('lspsaga').setup({
+			symbol_in_winbar = {
+				enabled = true,
+			}
+		})
 	end,
 	dependencies = {
 		'nvim-treesitter/nvim-treesitter', -- optional
 		'nvim-tree/nvim-web-devicons', -- optional
 	},
 	keys = {
-		{ "<leader>rr", "<cmd>Lspsaga finder<cr>",         desc = "References" },
-		{ "<leader>rc", "<cmd>Lspsaga incoming_calls<cr>", desc = "References" },
+		{ "<leader>ri", "<cmd>Lspsaga incoming_calls<cr>",  desc = "Incoming Calls" },
+		{ "<leader>ro", "<cmd>Lspsaga outgoing_calls<cr>",  desc = "Outgoing calls" },
+		{ "<leader>rf", "<cmd>Lspsaga finder<cr>",          desc = "Finder" },
+		{ "<leader>rd", "<cmd>Lspsaga peek_definition<cr>", desc = "Definition" },
+		{ "<leader>rl", "<cmd>Lspsaga outline<cr>",         desc = "Outline" },
 	}
 }

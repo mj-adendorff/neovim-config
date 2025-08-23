@@ -6,6 +6,8 @@ return {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
 				python = { "ruff_format" },
+				html = { "npx prettier" },
+				javascript = { "npx prettier" },
 				-- You can customize some of the format options for the filetype (:help conform.format)
 				-- rust = { "rustfmt", lsp_format = "fallback" },
 				-- Conform will run the first available formatter
@@ -13,9 +15,11 @@ return {
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()
-				timeout_ms = 500,
+				timeout_ms = 1000,
 				lsp_format = "fallback",
 			},
+			notify_on_error = true,
+			log_level = vim.log.levels.ERROR,
 		})
 	end,
 }

@@ -39,6 +39,15 @@ return {
 		priority = 1000,
 	},
 	{
+		'AlexvZyl/default.nvim',
+		name = "default",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require('default').load()
+		end
+	},
+	{
 		"ellisonleao/gruvbox.nvim",
 		name = "gruvbox",
 		priority = 1000,

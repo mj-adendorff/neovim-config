@@ -30,6 +30,13 @@ if vim.g.neovide then
 	vim.api.nvim_set_keymap("t", "<sc-v>", '<C-\\><C-n>"+Pi', { noremap = true })
 end
 
+-- terraform
+vim.filetype.add({
+	extension = {
+		tf = "terraform"
+	}
+})
+
 -- uncomment these line to show invisibles
 -- vim.cmd("set list")
 -- vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
@@ -43,6 +50,7 @@ vim.opt.guicursor = "i:ver20-blinkon1,a:blinkon1"
 
 --- clear search
 vim.keymap.set("n", "<S-w>", "<C-w>w", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-l>", "<CR>:noh<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>h", ":split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true })
 
@@ -68,7 +76,7 @@ vim.diagnostic.config({
 		}
 	},
 	virtual_text = false,
-	update_in_insert = true,
+	update_in_insert = false,
 	underline = true,
 	severity_sort = true,
 	float = {
@@ -88,8 +96,3 @@ vim.keymap.set("n", "<leader>tt", function()
 		themery.setThemeByName("gruvbox light", true)
 	end
 end, { noremap = true })
-
-vim.cmd([[
-    set signcolumn=yes
-    autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
