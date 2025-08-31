@@ -1,14 +1,17 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = { 'saghen/blink.cmp' },
 	config = function()
 		local lspconfig = require("lspconfig")
-		lspconfig.jdtls.setup({})
-		lspconfig.lua_ls.setup({})
-		lspconfig.ts_ls.setup({})
-		lspconfig.gopls.setup({})
-		lspconfig.basedpyright.setup({})
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-		vim.keymap.set({ "v", "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
+		local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+		lspconfig.jdtls.setup({ capabilities = capabilities })
+		lspconfig.lua_ls.setup({ capabilities = capabilities })
+		lspconfig.ts_ls.setup({ capabilities = capabilities })
+		lspconfig.gopls.setup({ capabilities = capabilities })
+		lspconfig.ruff.setup({})
+		lspconfig.pyright.setup({ capabilities = capabilities })
+		-- vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+		-- vim.keymap.set({ "v", "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
 	end,
 }

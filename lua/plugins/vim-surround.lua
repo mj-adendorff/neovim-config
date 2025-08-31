@@ -1,4 +1,4 @@
 return {
-	enabled = false,
+	enabled = true,
 	"tpope/vim-surround",
 }

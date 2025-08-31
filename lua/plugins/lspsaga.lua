@@ -24,5 +24,7 @@ return {
 		{ "<leader>rf", "<cmd>Lspsaga finder<cr>",          desc = "Finder" },
 		{ "<leader>rd", "<cmd>Lspsaga peek_definition<cr>", desc = "Definition" },
 		{ "<leader>rl", "<cmd>Lspsaga outline<cr>",         desc = "Outline" },
+		{ "<leader>ra", "<cmd>Lspsaga code_action<cr>",     desc = "Code Action" },
+		{ "<leader>rh", "<cmd>Lspsaga hover_doc<cr>",       desc = "Hover" },
 	}
 }

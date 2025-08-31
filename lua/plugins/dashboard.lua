@@ -6,7 +6,7 @@ return {
 
 		config.mru = {
 			label = " Recent Files",
-			limit = 10,
+			limit = 5,
 		}
 		config.project = {
 			label = " Recent Projects",
@@ -15,10 +15,16 @@ return {
 
 		config.shortcut = {
 			{
-				desc = "󰠮  Notes ",
-				action = "enew | set filetype=markdown",
+				desc = "󰠮  Load Saved Session ",
+				action = "SessionRestore",
 				group = "@string",
-				key = "n",
+				key = "l",
+			},
+			{
+				desc = "󰠮  Search Session ",
+				action = "Autosession search",
+				group = "@string",
+				key = "s",
 			},
 			{
 				desc = " 󰱼  File ",
@@ -47,7 +53,7 @@ return {
 		}
 
 		config.week_header = { enable = true }
-		config.footer = { "", "󰛨  Set up systems, not goals. " }
+		config.footer = { "", "Woo, time to code." }
 		config.packages = { enable = true }
 
 		require("dashboard").setup({

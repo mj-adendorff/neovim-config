@@ -14,10 +14,14 @@ vim.cmd("autocmd FileType python setlocal noexpandtab")
 vim.cmd("set relativenumber")
 vim.cmd("set mousescroll=ver:10")
 
+-- session options
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- if using neovide
 if vim.g.neovide then
-	vim.o.guifont = "0xProto Nerd Font Mono:h11"
+	vim.o.guifont = "0xProto Nerd Font Mono:h10"
 	vim.g.neovide_floating_shadow = true
+	vim.g.neovide_refresh_rate = 120
 	vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
 	vim.keymap.set({ "n", "x" }, "<C-S-V>", '"+p', { desc = "Paste system clipboard" })
 	vim.g.neovide_input_use_logo = 1
@@ -48,11 +52,31 @@ vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 vim.opt.guicursor = "i:ver20-blinkon1,a:blinkon1"
 -- MAPPINGS
 
---- clear search
-vim.keymap.set("n", "<S-w>", "<C-w>w", { noremap = true, silent = true })
+vim.keymap.set("n", "X", ":lua vim.diagnostic.open_float(nil, { focusable = false })<CR>",
+	{ noremap = true, silent = true })
+
+--- movement
+vim.keymap.set("n", "W", "<C-w>W", { noremap = true, silent = true })
+vim.keymap.set("n", "H", "<C-w><left>", { noremap = true, silent = true })
+vim.keymap.set("n", "L", "<C-w><right>", { noremap = true, silent = true })
+vim.keymap.set("n", "J", "<C-w><down>", { noremap = true, silent = true })
+vim.keymap.set("n", "K", "<C-w><up>", { noremap = true, silent = true })
+
+-- clear search
 vim.keymap.set("n", "<M-l>", "<CR>:noh<CR>", { noremap = true, silent = true })
+
+-- splits
 vim.keymap.set("n", "<leader>h", ":split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true })
+
+--- tabs
+vim.keymap.set("n", "<M-1>", ":tabn 1<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-2>", ":tabn 2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-3>", ":tabn 3<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-4>", ":tabn 4<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-5>", ":tabn 5<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-t>", ":tab split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-x>", ":tabclose<CR>", { noremap = true, silent = true })
 
 -- visual mode stuff
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
@@ -62,9 +86,6 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move text down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move text up" })
 
--- Stay in indent mode
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
 
 vim.diagnostic.config({
 	signs = {
