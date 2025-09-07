@@ -42,6 +42,11 @@ vim.filetype.add({
 	}
 })
 
+vim.opt.inccommand = "split"
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.signcolumn = "yes"
+
 -- uncomment these line to show invisibles
 -- vim.cmd("set list")
 -- vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")

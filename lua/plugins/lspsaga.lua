@@ -18,6 +18,9 @@ return {
 					shuttle = '<S-w>',
 				},
 				default = 'def+ref+imp',
+			},
+			lightbulb = {
+				enabled = false,
 			}
 		})
 	end,
