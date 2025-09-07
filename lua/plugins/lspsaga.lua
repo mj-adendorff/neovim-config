@@ -11,6 +11,13 @@ return {
 		require('lspsaga').setup({
 			symbol_in_winbar = {
 				enabled = true,
+			},
+			finder = {
+				keys = {
+					toggle_or_open = 'e',
+					shuttle = '<S-w>',
+				},
+				default = 'def+ref+imp',
 			}
 		})
 	end,
@@ -23,6 +30,7 @@ return {
 		{ "<leader>ro", "<cmd>Lspsaga outgoing_calls<cr>",  desc = "Outgoing calls" },
 		{ "<leader>rf", "<cmd>Lspsaga finder<cr>",          desc = "Finder" },
 		{ "<leader>rd", "<cmd>Lspsaga peek_definition<cr>", desc = "Definition" },
+		{ "<leader>gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Definition" },
 		{ "<leader>rl", "<cmd>Lspsaga outline<cr>",         desc = "Outline" },
 		{ "<leader>ra", "<cmd>Lspsaga code_action<cr>",     desc = "Code Action" },
 		{ "<leader>rh", "<cmd>Lspsaga hover_doc<cr>",       desc = "Hover" },

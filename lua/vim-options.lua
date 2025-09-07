@@ -19,7 +19,8 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 -- if using neovide
 if vim.g.neovide then
-	vim.o.guifont = "0xProto Nerd Font Mono:h10"
+	-- vim.o.guifont = "0xProto Nerd Font Mono:h10"
+	vim.o.guifont = "CaskaydiaMono Nerd Font Mono:h11"
 	vim.g.neovide_floating_shadow = true
 	vim.g.neovide_refresh_rate = 120
 	vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
@@ -56,7 +57,7 @@ vim.keymap.set("n", "X", ":lua vim.diagnostic.open_float(nil, { focusable = fals
 	{ noremap = true, silent = true })
 
 --- movement
-vim.keymap.set("n", "W", "<C-w>W", { noremap = true, silent = true })
+-- vim.keymap.set("n", "W", "<C-w>W", { noremap = true, silent = true })
 vim.keymap.set("n", "H", "<C-w><left>", { noremap = true, silent = true })
 vim.keymap.set("n", "L", "<C-w><right>", { noremap = true, silent = true })
 vim.keymap.set("n", "J", "<C-w><down>", { noremap = true, silent = true })
