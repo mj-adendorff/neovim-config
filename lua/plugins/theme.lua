@@ -27,6 +27,12 @@ return {
 		priority = 1000,
 	},
 	{
+		"nyoom-engineering/oxocarbon.nvim",
+		name = 'oxocarbon',
+		lazy = false,
+		priority = 1000,
+	},
+	{
 		"rebelot/kanagawa.nvim",
 		name = 'kanagawa',
 		lazy = false,

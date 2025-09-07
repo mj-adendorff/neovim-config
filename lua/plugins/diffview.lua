@@ -2,7 +2,7 @@ return {
 	"sindrets/diffview.nvim",
 	lazy = false,
 	keys = {
-		{ "<leader>dd", "<cmd>DiffviewFileHistory %s<cr>", desc = "Diffview" },
-		{ "<leader>dx", "<cmd>DiffviewClose<cr>",          desc = "Diffview" },
+		{ "<leader>dh", "<cmd>DiffviewFileHistory %s<cr>", desc = "Diffview file history" },
+		{ "<leader>dd", "<cmd>Diffview main<cr>",          desc = "Diffview comapare to main" },
 	}
 }

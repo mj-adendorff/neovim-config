@@ -7,8 +7,8 @@ return {
 				-- Conform will run multiple formatters sequentially
 				python = { "ruff_format" },
 				html = { "npx prettier" },
-				javascript = { "npx prettier" },
 				c = { "clang-format" },
+				javascript = { "prettier" },
 				-- You can customize some of the format options for the filetype (:help conform.format)
 				-- rust = { "rustfmt", lsp_format = "fallback" },
 				-- Conform will run the first available formatter
