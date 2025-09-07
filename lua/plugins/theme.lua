@@ -15,6 +15,12 @@ return {
 		priority = 1000,
 	},
 	{
+		"darianmorat/gruvdark.nvim",
+		lazy = false,
+		name = "gruvdark",
+		priority = 1000,
+	},
+	{
 		"mj-adendorff/onedark.nvim",
 		lazy = false,
 		name = "onedark",

@@ -20,7 +20,7 @@ return {
 				default = 'def+ref+imp',
 			},
 			lightbulb = {
-				enabled = false,
+				enable = false,
 			}
 		})
 	end,
