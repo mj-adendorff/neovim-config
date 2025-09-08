@@ -15,8 +15,9 @@ return {
 	opts = {
 		keymap = {
 			preset = 'default',
-			['<S-Tab>'] = { 'accept' },
-			['<M-Tab>'] = { 'select_next' },
+			['<M-Tab>'] = { 'accept' },
+			['<C-j>'] = { 'select_next' },
+			['<C-k>'] = { 'select_prev' },
 		},
 
 		appearance = {
@@ -26,7 +27,12 @@ return {
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
 		},
-		fuzzy = { implementation = "prefer_rust_with_warning" }
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
+			sorts = {
+				'exact', 'score', 'sort_text', 'label'
+			}
+		}
 	},
 	opts_extend = { "sources.default" }
 }
