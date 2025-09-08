@@ -13,7 +13,55 @@ return {
 			local dap_python = require("dap-python")
 
 
-			require("dapui").setup({})
+			require("dapui").setup({
+				controls = {
+					enabled = true,
+					element = 'console',
+					icons = {
+						pause = '',
+						play = '',
+						step_into = '',
+						step_over = '',
+						step_out = '',
+						step_back = '',
+						run_last = '',
+						terminate = '',
+					},
+				},
+				layouts = {
+					-- Vertical bar.
+					{
+						elements = {
+							{
+								id = 'watches',
+								size = 0.1,
+							},
+							{
+								id = 'stacks',
+								size = 0.2,
+							},
+							{
+								id = 'breakpoints',
+								size = 0.2,
+							},
+							{
+								id = 'scopes',
+								size = 0.5,
+							},
+						},
+						size = 0.15,
+						position = 'left',
+					},
+					-- Horizontal bar.
+					{
+						elements = {
+							'console',
+						},
+						size = 0.2,
+						position = 'bottom',
+					},
+				},
+			})
 			require("nvim-dap-virtual-text").setup({
 				commented = true, -- Show virtual text alongside comment
 			})
