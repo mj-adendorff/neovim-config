@@ -15,10 +15,11 @@ return {
 	opts = {
 		keymap = {
 			preset = 'default',
-			['<M-Tab>'] = { 'accept' },
+			['<S-Tab>'] = { 'show_and_insert', 'select_next' },
 			['<C-j>'] = { 'select_next' },
 			['<C-k>'] = { 'select_prev' },
 		},
+		list = { selection = { preselect = false, auto_insert = true } },
 
 		appearance = {
 			nerd_font_variant = 'mono'

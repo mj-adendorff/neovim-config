@@ -15,9 +15,14 @@ return {
 			finder = {
 				keys = {
 					toggle_or_open = 'e',
-					shuttle = '<S-w>',
+					shuttle = '<S-W>',
 				},
 				default = 'def+ref+imp',
+			},
+			callhierarchy = {
+				keys = {
+					shuttle = '<S-W>',
+				}
 			},
 			lightbulb = {
 				enable = false,
